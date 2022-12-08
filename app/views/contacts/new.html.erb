@@ -1,0 +1,23 @@
+<h1>Contact us for feedback</h1>
+<%if @feedback && @feedback.errors.any?%>
+  <ul>
+    <%@rus_errors.each do |error|%>
+      <li><%=error%></li>
+    <%end%>
+  </ul>
+<%end%>
+<%= form_with model: @contact, data: { turbo: false }, url: '/contacts' do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+  </p>
+  <p>
+    <%= f.label :email%>
+    <%= f.email_field :email%>
+  </p>
+  <p>
+    <%= f.label :message%>
+    <%= f.text_area :message%>
+  </p>
+  <%= f.submit%>
+<%end%>

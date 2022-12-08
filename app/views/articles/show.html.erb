@@ -1,0 +1,11 @@
+<div>
+  <h3> <%=@article.title%></h3>
+  <p><%=@article.text%></p>
+  <%=link_to 'Редактировать', edit_article_path%>
+  <div>
+    <%= form_with model: @article, data: { turbo: false }, url: article_path, method: :delete do |f| %>
+      <%= f.submit 'Удалить'%>
+    <%end%>
+  </div>
+  <%=link_to 'К постам', articles_path%>
+</div>

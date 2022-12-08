@@ -1,0 +1,17 @@
+<h2>Edit article</h2>
+<p><%=@error%></p>
+
+<label >Make your changes</label>
+<div>
+<%= form_with model: @article, data: { turbo: false }, url: article_path, method: :put do |f| %>
+  <p>
+    <%= f.label :title%>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :text%>
+    <%= f.text_area :text%>
+  </p>
+  <%= f.submit%>
+<%end%>
+</div>
